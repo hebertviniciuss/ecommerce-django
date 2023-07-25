@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Produto - {{ produto.nome_produto }}
+{% endblock title %}
+
+{% block content %}
+  <div class="container mt-4">
+    <div class="product product-detail-container">
+      <h1 class="display-4">{{ produto.nome_produto }}</h1>
+      <small class="text-muted">{{ produto.nome_produto}}</small>
+      <img src="{{ produto.imagem_produto }}" class="img-fluid product-image">
+      <p class="lead">{{ produto.descricao }}</p>
+    </div>
+  </div>
+{% endblock content %}

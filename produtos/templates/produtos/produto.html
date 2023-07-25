@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Produtos{% endblock title %}
+
+{% block content %}
+    <div class="container mt-4" id="product-list">
+        <div class="row justify-content-between">
+            {% for produto in produtos %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                            <img src="{{ produto.imagem_produto }}" alt="{{ produto.descricao }}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{% url 'produto_detalhar' produto.id %}">{{ produto.nome_produto }}</a>
+                            </h5>
+                            <p class="card-text price">R$ {{ produto.preco }}</p>
+                            <small>{{ produto.categoria }}</small>
+                            <p class="card-text description">{{ produto.marca }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
