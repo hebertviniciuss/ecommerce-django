@@ -24,7 +24,6 @@
             <th scope="col">Descrição</th>
             <th scope="col">Marca</th>
             <th scope="col">Categoria</th>
-            <th scope="col">Imagem</th>
             <th scope="col">Opções</th>
           </tr>
         </thead>
@@ -36,9 +35,6 @@
               <td>{{ produto.descricao }}</td>
               <td>{{ produto.marca }}</td>
               <td>{{ produto.categoria}}</td>
-              <td>
-                  <img src="{{ produto.imagem.url }}" alt="{{ produto.descricao }}" class="img-thumbnail" style="max-height: 100px;">
-              </td>
               <td>
                 <div class="d-flex">
                   <a class="btn btn-secondary me-2" href="{% url 'produto_editar' produto.id %}">Editar</a>

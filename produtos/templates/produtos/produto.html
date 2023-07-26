@@ -10,7 +10,12 @@
             {% for produto in produtos %}
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                            <img src="{{ produto.imagem_produto }}" alt="{{ produto.descricao }}" class="card-img-top">
+                        <!-- Corrigindo o caminho da imagem usando a URL correta -->
+                        {% if produto.imagem_produto %}
+                            <img src="{{ produto.imagem_produto.url }}" alt="{{ produto.descricao }}" class="card-img-top">
+                        {% else %}
+                            <img src="{% static 'img/imagem_padrao.png.webp' %}" alt="{{ produto.descricao }}" class="card-img-top">
+                        {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a href="{% url 'produto_detalhar' produto.id %}">{{ produto.nome_produto }}</a>
